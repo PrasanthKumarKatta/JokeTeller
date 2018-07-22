@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -16,6 +17,12 @@ import java.io.IOException;
 public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+    }
 
     @Override
     protected String doInBackground(Context... params) {
@@ -47,8 +54,8 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String result) {
-
+    protected void onPostExecute(String result)
+    {
         Intent intent = new Intent(context,MyJokeDisplay.class);
         intent.putExtra(MyJokeDisplay.MYJOKE_KEY,result);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
