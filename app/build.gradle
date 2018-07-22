@@ -32,6 +32,10 @@ android {
         }
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'The_Admob_Unit_Id',TheAdmobUnitId
+    }
+
     flavorDimensions "default"
     productFlavors {
         free {

@@ -13,6 +13,7 @@ public class MyJokeDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_joke_display);
 
+
         if (getIntent().hasExtra(MYJOKE_KEY)) {
             text = findViewById(R.id.jokeText);
             String jok = getIntent().getStringExtra(MYJOKE_KEY);
